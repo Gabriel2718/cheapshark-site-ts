@@ -58,13 +58,21 @@ function App() {
     getGames();
     window.scrollTo(0, 0);
   }, [state.page, state.titleParam]);
-  
+
+  function toSearch(title: string) {
+    dispatch({ type: 'SET_TITLE_PARAM', payload: `&title=${title}`});
+  }
+
+/*  
+  <SearchBar 
+        onSearch={toSearch}
+      />
+
+*/
   return <div className='body'>
     <div className='header'>
       <img src={logo} alt="logo"/>
-      <SearchBar 
-        onSearch={() => {}}
-      />
+      
     </div>
     <div className='main-content'>
       {state.games.length == 0 && <h2>Fim da visualização...</h2>}

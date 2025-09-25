@@ -59,6 +59,25 @@
   width: 20rem;
 }
 
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  height: 40px;
+  width: 18rem;
+  font-size: 1.3rem;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+.search-bar button {
+  height: 50px;
+}
+
 .main-content {
   display: flex;
   align-content: center;
