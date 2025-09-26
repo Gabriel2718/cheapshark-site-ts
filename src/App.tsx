@@ -63,18 +63,14 @@ function App() {
   function toSearch(title: string) {
     dispatch({ type: 'SET_TITLE_PARAM', payload: `&title=${title}`});
   }
-
-/*  
-  <SearchBar 
-        onSearch={toSearch}
-      />
-
-*/
+  
   const [searchValue, setSearchValue] = useState('');
 
   return <div className='body'>
     <div className='header'>
-      <img src={logo} alt="logo"/>
+      <a href="index.html">
+        <img src={logo} alt="logo"/>
+      </a>
       <div className='search-bar'>
         <input type="text" className='search-bar' value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
         <button  style={{marginLeft: '1rem'}} onClick={() => {toSearch(searchValue)}}><SearchIcon /></button>
