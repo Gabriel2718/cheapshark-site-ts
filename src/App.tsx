@@ -1,7 +1,8 @@
 import './App.css'
 import { GameCard } from './components/GameCard';
-import { SearchBar } from './components/SearchBar';
-import { useEffect, useReducer } from 'react';
+//import { SearchBar } from './components/SearchBar';
+import SearchIcon from '@mui/icons-material/Search';
+import { useEffect, useReducer, useState } from 'react';
 import logo from './assets/logo.png';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -69,10 +70,15 @@ function App() {
       />
 
 */
+  const [searchValue, setSearchValue] = useState('');
+
   return <div className='body'>
     <div className='header'>
       <img src={logo} alt="logo"/>
-      
+      <div className='search-bar'>
+        <input type="text" className='search-bar' value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
+        <button  style={{marginLeft: '1rem'}} onClick={() => {toSearch(searchValue)}}><SearchIcon /></button>
+       </div>
     </div>
     <div className='main-content'>
       {state.games.length == 0 && <h2>Fim da visualização...</h2>}
